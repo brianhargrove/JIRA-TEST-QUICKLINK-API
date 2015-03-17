@@ -1,0 +1,20 @@
+{
+  "name": "bootstrap",
+  "keys": [
+    "#/jwt/issuer",
+    "#/jwt/audience",
+    "#/authentic/url",
+    "#/server/port",
+    "#/server/suicide_timeout_ms",
+    "#/server/unfulfilled/interval_ms",
+    "#/server/unfulfilled/max_startup_timeout_ms",
+    "#/trusted_endpoint/auth_cache_timeout_ms",
+    "#/trusted_endpoint/key_id"
+  ],
+  "optional": [
+    "#/server/suicide_timeout_ms",
+    "#/server/unfulfilled/interval_ms",
+    "#/server/unfulfilled/max_startup_timeout_ms",
+    "#/trusted_endpoint/auth_cache_timeout_ms"
+  ]
+}

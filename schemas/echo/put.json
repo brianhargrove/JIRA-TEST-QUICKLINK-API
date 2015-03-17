@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "echo": {
+    "type": "object",
+    "properties": {
+      "who": {
+        "type": "string",
+        "title": "Who posted the data"
+      },
+      "what": {
+        "title": "The thing to echo"
+      }
+    },
+    "required": ["who", "what"]
+  }
+}
