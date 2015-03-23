@@ -9,16 +9,16 @@ module.exports.wireup = function wireupRoutes(injector, configName) {
   injector.when('app', function(app) {
 
     // publicly visible routes...
-    var public = express.Router();
-    wireup('./public')(public);
-    app.use('/authentic/public/v1/:lang', public);
+    var publicRouter = express.Router();
+    wireup('./public', publicRouter);
+    app.use('/boilerplate/public/v1/:lang', publicRouter);
 
     // routes accessible only to trusted clients...
-    var trusted = express.Router();
-    trusted.all('*',
+    var trustedRouter = express.Router();
+    trustedRouter.all('*',
       trusted.demand.authenticatedEndpoint
     );
-    wireup('./trusted')(trusted);
-    app.use('/authentic/v1/:lang', trusted);
+    wireup('./trusted', trustedRouter);
+    app.use('/boilerplate/v1/:lang', trustedRouter);
   });
 };

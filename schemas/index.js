@@ -4,5 +4,6 @@
 module.exports = require('foldero')(
   './', {
     relative: __dirname,
-    ignore: __filename
+    ignore: __filename,
+    recurse: true
   });

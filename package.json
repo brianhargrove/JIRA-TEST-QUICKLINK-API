@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-api",
   "version": "0.1.0",
-  "description": "LeisureLink RESTful API boilerplate.",
+  "description": "LeisureLink RESTful Boilerplate API.",
   "title": "Boilerplate API",
   "private": true,
   "main": "app.js",
@@ -10,27 +10,41 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:LeisureLink/boilerplate-api.git"
+    "url": "git+ssh://git@github.com/LeisureLink/boilerplate-api.git"
   },
   "author": "Phillip Clark <phillip@flitbit.com>",
   "dependencies": {
     "assert-plus": "^0.1.5",
-    "auth-context": "git+ssh://git@github.com:LeisureLink/auth-context.git#develop",
+    "auth-context": "git+ssh://git@github.com/LeisureLink/auth-context.git#develop",
+    "authentic-client": "git+ssh://git@github.com:LeisureLink/authentic-client.git#develop",
+    "body-parser": "^1.12.2",
+    "env-configurator": "git+ssh://git@github.com/LeisureLink/env-configurator.git#develop",
     "express": "^4.11.1",
-    "http-equiv-errors": "git://github.com:LeisureLink/http-equiv-errors",
-    "http-signature": "git://github.com:LeisureLink/node-http-signature#b500bf7",
+    "foldero": "^0.1.1",
+    "http-equiv-errors": "git://github.com/LeisureLink/http-equiv-errors",
+    "http-signature": "git://github.com/LeisureLink/node-http-signature#b500bf7",
     "is-my-json-valid": "^2.3.0",
     "json-ptr": "^0.2.0",
     "jsonwebtoken": "^3.2.2",
-    "service-inject": "git://github.com/LeisureLink/service-inject",
-    "svcutils": "git+ssh://git@github.com:LeisureLink/svcutils.git",
-    "trusted-endpoint": "git+ssh://git@github.com/LeisureLink/trusted-endpoint",
+    "morgan": "^1.5.2",
+    "service-inject": "git://github.com/LeisureLink/service-inject.git",
+    "svcutils": "git+ssh://git@github.com/LeisureLink/svcutils.git",
+    "trusted-app": "git+ssh://git@github.com/LeisureLink/trusted-app.git",
+    "trusted-endpoint": "git+ssh://git@github.com/LeisureLink/trusted-endpoint.git",
     "uri-template": "^0.4.1",
+    "ursa": "^0.8.3",
     "winston": "^0.8.3",
-    "wireup": "git://github.com/LeisureLink/wireup"
+    "wireup": "git://github.com/LeisureLink/wireup.git"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^2.0.1"
+    "fail-fast": "^1.0.0",
+    "mocha": "^2.0.1",
+    "node-uuid": "^1.4.3",
+    "portfinder": "^0.4.0",
+    "trusted-client": "git+ssh://git@github.com/LeisureLink/trusted-client.git"
+  },
+  "config": {
+    "title": "Boilerplate API"
   }
 }

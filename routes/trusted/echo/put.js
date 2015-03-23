@@ -2,10 +2,11 @@
 
 var errors = require('http-equiv-errors');
 var validator = require('is-my-json-valid');
+var wireup = require('wireup');
 
 var envelope = require('svcutils').envolope;
 
-var schema = require('./schemas').echo.put;
+var schema = wireup.rootRelative('./schemas').echo.put;
 var validate = validator(schema);
 
 module.exports = function(request, response, next) {
