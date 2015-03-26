@@ -1,4 +1,3 @@
-/*global it: false, describe: false, before: false, after: false, afterEach: false*/
 'use strict';
 
 var util = require('util');
@@ -51,7 +50,7 @@ var log = {
   debug: print
 };
 
-describe('bootstrap-api', function() {
+describe('${boilerplate}-api', function() {
   var injector;
   var ourUri;
   var _app;
@@ -122,7 +121,7 @@ describe('bootstrap-api', function() {
       var client;
 
       before(function() {
-        echoUrl = template.parse(ourUri + 'boilerplate/v1/{lang}/echo');
+        echoUrl = template.parse(ourUri + '${boilerplate}/v1/{lang}/echo');
         client = new TrustedClient({
           keyId: keyId,
           key: key,

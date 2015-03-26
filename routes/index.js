@@ -11,7 +11,7 @@ module.exports.wireup = function wireupRoutes(injector, configName) {
     // publicly visible routes...
     var publicRouter = express.Router();
     wireup('./public', publicRouter);
-    app.use('/boilerplate/public/v1/:lang', publicRouter);
+    app.use('/${boilerplate}/public/v1/:lang', publicRouter);
 
     // routes accessible only to trusted clients...
     var trustedRouter = express.Router();
@@ -19,6 +19,6 @@ module.exports.wireup = function wireupRoutes(injector, configName) {
       trusted.demand.authenticatedEndpoint
     );
     wireup('./trusted', trustedRouter);
-    app.use('/boilerplate/v1/:lang', trustedRouter);
+    app.use('/${boilerplate}/v1/:lang', trustedRouter);
   });
 };
