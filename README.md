@@ -84,4 +84,11 @@ The file system layout of the API is significant and should remain consistent as
 
 ```
 
+## A brief note on logging
 
+By default applications log only to the console because this is how they will run when deployed.
+
+On a developer's local host an environment flag may be set to enable a debug level log to be written
+to the file ```./logs/all-logs.log.``` To enable logging to this file set ```LOCAL_LOG_FILE``` to the
+string value 'localdev.' Please keep in mind that when the application is deployed logging is sent to the
+console only for later collection in our centralized logging system.
