@@ -47,6 +47,6 @@
     "trusted-client": "git+ssh://git@github.com/LeisureLink/trusted-client.git"
   },
   "config": {
-    "title": "Boilerplate API"
+    "title": "${Boilerplate} API"
   }
 }
