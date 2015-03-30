@@ -92,3 +92,11 @@ For local development this means that you will need a copy of `authentic-api` ru
 
 Use the [`authentic-cli`](https://github.com/LeisureLink/authentic-cli)'s `create-endpoint` command to add your API's endpoint ID to your local development environment and `add-endpoint-key` to add your signing key so that other API's can authenticate your requests.
 
+## A brief note on logging
+
+By default applications log only to the console because this is how they will run when deployed.
+
+On a developer's local host an environment flag may be set to enable a debug level log to be written
+to the file ```./logs/all-logs.log.``` To enable logging to this file set ```LOCAL_LOG_FILE``` to the
+string value 'localdev.' Please keep in mind that when the application is deployed logging is sent to the
+console only for later collection in our centralized logging system.
