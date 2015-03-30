@@ -28,9 +28,9 @@ function genPrivateKey(fileName, fullName) {
   var pk = ursa.generatePrivateKey(); // 2048, 65537
   var pemFileName = path.join(path.dirname(fullName),
     path.basename(fileName).replace(/boilerplate/g, apiname));
- var pubFileName = path.join(path.dirname(pemFileName),
+  var pubFileName = path.join(path.dirname(pemFileName),
     path.basename(pemFileName, '.pem')) + '.pub';
-   fs.writeFile(pemFileName, pk.toPrivatePem('utf8'), rethrow);
+  fs.writeFile(pemFileName, pk.toPrivatePem('utf8'), rethrow);
   fs.writeFile(pubFileName, pk.toPublicPem('utf8'), rethrow);
   fs.unlink(fullName, ignore);
 }

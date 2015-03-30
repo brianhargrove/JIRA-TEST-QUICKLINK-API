@@ -20,7 +20,7 @@ The init script performs simple template replacements and results in a new, runn
 
 You should also commit & push the newly init'd code to a new repository.
 
-The `init.js` script will create a new 2048 bit RSA key for your API to use in the development environment. The new key is named for your API and is located in your project's root directory: `./wonderkid-dev.pem`. It is your responsibility to register your endpoint key with the _Claims Authority_ in your environment. If your key is not registered then all calls to your API will fail with an `401 - Unauthorized` response.
+The `init.js` script will create a new 2048 bit RSA key for your API to use in the development environment. The new key is named for your API and is located in your project's root directory: `./wonderkid-dev.pem`. Register your endpoint and key with the authentic-api](#user-content-register-your-endpoint-and-public-key). If your key is not registered then all calls to your API will fail with an `401 - Unauthorized` response.
 
 ## What's in the Boilerplate
 
@@ -84,4 +84,11 @@ The file system layout of the API is significant and should remain consistent as
 
 ```
 
+### Register Your Endpoint and Public Key
+
+LeisureLink's API security requires that most API calls be signed. Your API is referred to as a `trusted-endpoint`; as such, in order to have requests from your API pass through the other APIs in LeisureLink's inventory, your endpoint's identity and the signature key your endpoint uses for signing requests must be registered with the `authentic-api` acting as the _Claims Authority_ in your environment.
+
+For local development this means that you will need a copy of `authentic-api` running where it is reachable by your development machine.
+
+Use the [`authentic-cli`](https://github.com/LeisureLink/authentic-cli)'s `create-endpoint` command to add your API's endpoint ID to your local development environment and `add-endpoint-key` to add your signing key so that other API's can authenticate your requests.
 
