@@ -20,7 +20,7 @@ The init script performs simple template replacements and results in a new, runn
 
 You should also commit & push the newly init'd code to a new repository.
 
-The `init.js` script will create a new 2048 bit RSA key for your API to use in the development environment. The new key is named for your API and is located in your project's root directory: `./wonderkid-dev.pem`. Register your endpoint and key with the authentic-api](#user-content-register-your-endpoint-and-public-key). If your key is not registered then all calls to your API will fail with an `401 - Unauthorized` response.
+The `init.js` script will create a new 2048 bit RSA key for your API to use in the development environment. The new key is named for your API and is located in your project's root directory: `./wonderkid-dev.pem`. [Register your endpoint and key with the authentic-api](#user-content-register-your-endpoint-and-public-key). If your key is not registered then all calls to your API will fail with an `401 - Unauthorized` response.
 
 ## What's in the Boilerplate
 
