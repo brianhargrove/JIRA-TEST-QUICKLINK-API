@@ -1,7 +1,7 @@
 {
-  "name": "${boilerplate}-api",
+  "name": "boilerplate-api",
   "version": "0.1.0",
-  "description": "LeisureLink RESTful ${Boilerplate} API.",
+  "description": "LeisureLink RESTful Boilerplate API.",
   "private": true,
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/LeisureLink/${boilerplate}-api.git"
+    "url": "git+ssh://git@github.com/LeisureLink/boilerplate-api.git"
   },
   "author": "Phillip Clark <phillip@flitbit.com>",
   "dependencies": {
@@ -47,6 +47,6 @@
     "trusted-client": "git+ssh://git@github.com/LeisureLink/trusted-client.git"
   },
   "config": {
-    "title": "${Boilerplate} API"
+    "title": "Boilerplate API"
   }
 }

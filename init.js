@@ -35,18 +35,6 @@ function genPrivateKey(fileName, fullName) {
   fs.unlink(fullName, ignore);
 }
 
-// This is a quick and dirty filter; a better approach would be to use the
-// local .gitignore patterns to ignore files. ~Pdc
-function possiblyFilterFile(fileName, fullName) {
-  if (fileName === 'boilerplate-dev.pem') {
-    genPrivateKey(fileName, fullName);
-    return true;
-  }
-  return fullName === __filename ||
-    fullName.indexOf('node_modules') !== -1 ||
-    fullName.indexOf('.git') !== -1;
-}
-
 function performTemplateReplacements(file) {
   fs.readFile(file, 'utf8', function(err, data) {
     if (err) {
@@ -59,7 +47,38 @@ function performTemplateReplacements(file) {
   });
 }
 
-function handleFileStat(file, err, stat) {
+function performSimpleReplacements(file) {
+  fs.readFile(file, 'utf8', function(err, data) {
+    if (err) {
+      throw err;
+    }
+    var transformed = data.replace(/(boilerplate)/g, ch.lowerCase(apiname));
+    transformed = transformed.replace(/(BOILERPLATE)/g, ch.constantCase(apiname));
+    transformed = transformed.replace(/(Boilerplate)/g, ch.titleCase(apiname));
+    fs.writeFile(file, transformed, 'utf8', rethrow);
+  });
+}
+
+function calculateTransform(fileName, fullName) {
+  if (fileName === 'boilerplate-dev.pem') {
+    genPrivateKey(fileName, fullName);
+    return false;
+  }
+  if (fullName === __filename ||
+    fullName.indexOf('node_modules') !== -1 ||
+    fullName.indexOf('.git') !== -1) {
+    return false;
+  }
+  if (fileName === 'package.json' ||
+    fileName === 'boilerplate-api.njsproj' ||
+    fileName === 'boilerplate-api.sln')
+  {
+    return performSimpleReplacements;
+  }
+  return performTemplateReplacements;
+}
+
+function handleFileStat(file, transform, err, stat) {
   if (err) {
     throw err;
   }
@@ -71,7 +90,7 @@ function handleFileStat(file, err, stat) {
       fs.renameSync(file, renamed);
       file = renamed;
     }
-    performTemplateReplacements(file);
+    transform(file);
   } else {
     replaceInFiles(file);
   }
@@ -85,18 +104,18 @@ function replaceInFiles(dir) {
 
     var len = files.length;
     var i = -1;
-    var n, f;
+    var n, f, t;
 
     while (++i < len) {
       n = files[i];
       f = path.join(dir, n);
-      if (!possiblyFilterFile(n, f)) {
-        fs.stat(f, handleFileStat.bind(null, f));
+      t = calculateTransform(n, f);
+      if (t) {
+        fs.stat(f, handleFileStat.bind(null, f, t));
       }
     }
   });
 }
-
 
 if (!apiname) {
   program.help();
