@@ -32,7 +32,7 @@
     "trusted-endpoint": "git+ssh://git@github.com/LeisureLink/trusted-endpoint.git",
     "uri-template": "^0.4.1",
     "ursa": "^0.8.3",
-    "winston": "^0.8.3",
+    "winston": "^0.9.0",
     "wireup": "git://github.com/LeisureLink/wireup.git"
   },
   "devDependencies": {
