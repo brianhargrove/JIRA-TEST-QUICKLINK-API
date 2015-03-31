@@ -63,7 +63,7 @@ describe('${boilerplate}-api', function() {
 
     portfinder.getPort(function(err, port) {
       if (err) done(err);
-      process.env.BOILERPLATE_SERVER_PORT = port;
+      process.env.${BOILERPLATE}_SERVER_PORT = port;
 
       injector = require('../'); // api's app.
 
