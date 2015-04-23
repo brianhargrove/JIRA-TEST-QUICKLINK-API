@@ -36,7 +36,6 @@
     "wireup": "git://github.com/LeisureLink/wireup.git"
   },
   "devDependencies": {
-    "nan": "1.7.0",
     "change-case": "^2.2.0",
     "commander": "^2.7.1",
     "expect.js": "^0.3.1",
