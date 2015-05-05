@@ -20,7 +20,7 @@
         <Content Include="README.md" />
         <Compile Include="app.js" />
         <Compile Include="app_default_env.js" />
-        <Content Include="config\boilerplate-spec.json" />
+        <Content Include="config\quicklink-spec.json" />
         <Compile Include="lib\index.js" />
         <Compile Include="lib\Logger.js" />
         <Compile Include="routes\index.js" />

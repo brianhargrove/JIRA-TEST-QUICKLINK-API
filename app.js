@@ -12,15 +12,15 @@ var Configurator = require('env-configurator');
 var injector = new(require('service-inject'))();
 var wireup = require('wireup').dir(__dirname, injector).loader(require);
 
-var spec = require('./config/${boilerplate}-spec');
+var spec = require('./config/quicklink-spec');
 var config = new Configurator();
 
 require('./app_default_env');
 
-var authKeyFile = path.normalize(process.env.${BOILERPLATE}_JWT_ISSUER_PUB);
+var authKeyFile = path.normalize(process.env.QUICKLINK_JWT_ISSUER_PUB);
 var authenticPublicKey = fs.readFileSync(authKeyFile, 'utf8');
 
-var privKeyFile = path.normalize(process.env.${BOILERPLATE}_TRUSTED_ENDPOINT_KEYFILE);
+var privKeyFile = path.normalize(process.env.QUICKLINK_TRUSTED_ENDPOINT_KEYFILE);
 var endpointPrivateKey = fs.readFileSync(privKeyFile, 'utf8');
 
 var options = {

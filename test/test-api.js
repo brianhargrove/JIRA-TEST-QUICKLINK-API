@@ -50,7 +50,7 @@ var log = {
   debug: print
 };
 
-describe('${boilerplate}-api', function() {
+describe('quicklink-api', function() {
   var injector;
   var ourUri;
   var _app;
@@ -63,7 +63,7 @@ describe('${boilerplate}-api', function() {
 
     portfinder.getPort(function(err, port) {
       if (err) done(err);
-      process.env.${BOILERPLATE}_SERVER_PORT = port;
+      process.env.QUICKLINK_SERVER_PORT = port;
 
       injector = require('../'); // api's app.
 
@@ -121,7 +121,7 @@ describe('${boilerplate}-api', function() {
       var client;
 
       before(function() {
-        echoUrl = template.parse(ourUri + '${boilerplate}/v1/{lang}/echo');
+        echoUrl = template.parse(ourUri + 'quicklink/v1/{lang}/echo');
         client = new TrustedClient({
           keyId: keyId,
           key: key,
